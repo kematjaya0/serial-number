@@ -4,7 +4,6 @@ namespace Kematjaya\SerialNumber\Builder;
 
 use Kematjaya\SerialNumber\Lib\SerialNumberInterface;
 use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 /**
  * @author Nur Hidayatullah <kematjaya0@gmail.com>
  */
