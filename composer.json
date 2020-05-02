@@ -1,0 +1,31 @@
+{
+    "name": "kematjaya/serial-number",
+    "type": "library",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Nur Hidayatullah",
+            "email": "kematjaya0@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/security-core": "^4.0|^5.0",
+        "symfony/dependency-injection": "^4.0|^5.0",
+        "symfony/config": "^4.0|^5.0",
+        "doctrine/common": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kematjaya\\SerialNumber\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kematjaya\\SerialNumber\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.1"
+    }
+}
