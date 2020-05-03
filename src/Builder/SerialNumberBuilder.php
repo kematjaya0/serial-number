@@ -3,11 +3,12 @@
 namespace Kematjaya\SerialNumber\Builder;
 
 use Kematjaya\SerialNumber\Lib\SerialNumberInterface;
+use Kematjaya\SerialNumber\Builder\SerialNumberBuilderInterface;
 use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
 /**
  * @author Nur Hidayatullah <kematjaya0@gmail.com>
  */
-class SerialNumberBuilder 
+class SerialNumberBuilder implements SerialNumberBuilderInterface
 {
     const OS_WIN_7 = 'WINNT';
     const OS_LINUX = 'Linux';
