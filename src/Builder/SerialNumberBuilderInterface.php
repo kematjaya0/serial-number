@@ -13,4 +13,6 @@ interface SerialNumberBuilderInterface
     public function generateSerialNumber(): SerialNumberInterface;
     
     public function validateSerialNumber($number):?string;
+    
+    public function getSerialNumber(): ?SerialNumberInterface;
 }
