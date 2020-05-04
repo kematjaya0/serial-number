@@ -14,5 +14,5 @@ interface SerialNumberBuilderInterface
     
     public function validateSerialNumber($number):?string;
     
-    public function getSerialNumber(): ?SerialNumberInterface;
+    public function getSerialNumber(): ?string;
 }

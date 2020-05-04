@@ -85,8 +85,8 @@ class SerialNumberBuilder implements SerialNumberBuilderInterface
         return null;
     }
     
-    public function getSerialNumber(): ?SerialNumberInterface
+    public function getSerialNumber(): ?string
     {
-        return $this->generateSerialNumber();
+        return $this->generateSerialNumber()->getNumber();
     }
 }
