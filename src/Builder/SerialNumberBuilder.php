@@ -44,6 +44,32 @@ class SerialNumberBuilder implements SerialNumberBuilderInterface
         return trim($macAddress);
     }
     
+    private function getLinuxMac()
+    {
+        exec('netstat -ie', $result);
+        if(is_array($result)) 
+        {
+            $iface = array();
+            foreach($result as $key => $line) 
+            {
+                if($key > 0) {
+                    $tmp = str_replace(" ", "", substr($line, 0, 10));
+                    if($tmp <> "") 
+                    {
+                        $macpos = strpos($line, "HWaddr");
+                        if($macpos !== false) 
+                        {
+                            $iface[] = array('iface' => $tmp, 'mac' => strtolower(substr($line, $macpos+7, 17)));
+                        }
+                    }
+                }
+            }
+            return $iface[0]['mac'];
+        }
+        
+        throw new \Exception('not found');
+    }
+    
     private function getMacAddress()
     {
         $mac = null;
@@ -52,9 +78,10 @@ class SerialNumberBuilder implements SerialNumberBuilderInterface
                 $mac = $this->getWindowsMac();
                 break;
             case self::OS_LINUX:
+                $mac = $this->getLinuxMac();
                 break;
             default:
-                echo PHP_OS;exit;
+                throw new \Exception(sprintf('not supported for: %s', PHP_OS));
                 break;
         }
         
