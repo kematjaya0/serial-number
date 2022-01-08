@@ -44,21 +44,46 @@ class SerialNumberBuilder implements SerialNumberBuilderInterface
         return trim($macAddress);
     }
     
-    private function getMacAddress()
+    private function getIOSMac()
     {
-        $mac = null;
-        switch(PHP_OS){
-            case self::OS_WIN_7:
-                $mac = $this->getWindowsMac();
-                break;
-            case self::OS_LINUX:
-                break;
-            default:
-                echo PHP_OS;exit;
-                break;
+        ob_start();  
+        system('ifconfig en0');  
+        $myComSys = ob_get_contents();  
+        ob_clean();
+        
+        if (0 == strlen($myComSys)) {
+            
+            throw new \Exception(sprintf("cannot find '%s' config", 'en0'));
         }
         
-        return $mac;
+        $keys = 'ether';
+        $position = strpos($myComSys, $keys);
+        if (false === $position) {
+            
+            throw new \Exception(sprintf("cannot find '%s' config", $keys));
+        }
+        
+        $macAddress = substr($myComSys, ($position + strlen($keys) + 1), 17);
+        if (0 == strlen($macAddress)) {
+            
+            throw new \Exception(sprintf("cannot find physical address"));
+        }
+        
+        return trim($macAddress);
+    }
+    
+    private function getMacAddress()
+    {
+        if (PHP_OS === self::OS_WIN_7) {
+            
+            return $this->getWindowsMac();
+        }
+        
+        if (PHP_OS === self::OS_LINUX) {
+            throw new \Exception('linux under construction');
+        }
+        
+        return $this->getIOSMac();
     }
     
     public function getSalt()
