@@ -6,7 +6,6 @@ use Kematjaya\SerialNumber\Builder\SerialNumberBuilder;
 use Kematjaya\SerialNumber\Lib\SerialNumber;
 use Kematjaya\SerialNumber\Lib\SerialNumberInterface;
 use Symfony\Component\PasswordHasher\Hasher\NativePasswordHasher;
-use Symfony\Component\Security\Core\Encoder\NativePasswordEncoder;
 use PHPUnit\Framework\TestCase;
 /**
  * @author Nur Hidayatullah <kematjaya0@gmail.com>
