@@ -2,7 +2,6 @@
 
 namespace Kematjaya\SerialNumber\Lib;
 
-use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @author Nur Hidayatullah <kematjaya0@gmail.com>
  */
@@ -16,11 +15,11 @@ interface SerialNumberInterface
 
     function getOsFamily():?string;
 
-    function setNumber($number):self;
+    function setNumber(?string $number):self;
 
-    function setSalt($salt):self;
+    function setSalt(?string $salt):self;
 
-    function setOsVersion($osVersion):self;
+    function setOsVersion(?string $osVersion):self;
 
-    function setOsFamily($osFamily):self;
+    function setOsFamily(?string $osFamily):self;
 }

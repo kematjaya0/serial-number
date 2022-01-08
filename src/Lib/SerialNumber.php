@@ -8,8 +8,17 @@ use Kematjaya\SerialNumber\Lib\SerialNumberInterface;
  */
 class SerialNumber implements SerialNumberInterface
 {
+    
+    /**
+     * 
+     * @var string
+     */
     private $number;
     
+    /**
+     * 
+     * @var string
+     */
     private $salt;
     
     private $osVersion = PHP_OS;
@@ -36,28 +45,28 @@ class SerialNumber implements SerialNumberInterface
         return $this->osFamily;
     }
 
-    function setNumber($number):SerialNumberInterface
+    function setNumber(?string $number):SerialNumberInterface
     {
         $this->number = $number;
         
         return $this;
     }
 
-    function setSalt($salt):SerialNumberInterface
+    function setSalt(?string $salt):SerialNumberInterface
     {
         $this->salt = $salt;
         
         return $this;
     }
 
-    function setOsVersion($osVersion):SerialNumberInterface
+    function setOsVersion(?string $osVersion):SerialNumberInterface
     {
         $this->osVersion = $osVersion;
         
         return $this;
     }
 
-    function setOsFamily($osFamily):SerialNumberInterface
+    function setOsFamily(?string $osFamily):SerialNumberInterface
     {
         $this->osFamily = $osFamily;
         

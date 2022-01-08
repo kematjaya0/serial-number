@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Kematjaya\\SerialNumber\\Tests\\Builder\\SerialNumberBuilderTest::testCreateBuilder":5},"times":{"Kematjaya\\SerialNumber\\Tests\\Builder\\SerialNumberBuilderTest::testCreateBuilder":0.908,"Kematjaya\\SerialNumber\\Tests\\Lib\\SerialNumberTest::testSerialNumber":0}}
